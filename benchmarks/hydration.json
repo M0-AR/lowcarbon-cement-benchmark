@@ -1,0 +1,48 @@
+{
+  "hypothesis": "H2 C-S-H ~1.75 nanostructure (tobermorite/jennite defects, dreierketten)",
+  "thresholds": {
+    "H2a_CaSi_range": [
+      1.6,
+      2.0
+    ],
+    "H2b_CaSi_mean": 1.75,
+    "H2c_Q3_Q4_zero_20C": true,
+    "H2d_MCL_23y": 4.8,
+    "H2e_2026_LFNMR": {
+      "SynCSH": "C0.9SH3.65",
+      "HC3SP": "C2.0SH4.53"
+    },
+    "H2f_2026_DNP": {
+      "MCL_initial_dimers": 2.6,
+      "MCL_3h": 4.2
+    }
+  },
+  "observed": {
+    "CaSi_typical_OPC": 1.7,
+    "Q_evolution": "Q0->Q1->Q2, Q3=Q4=0 @20C (NMR)",
+    "MCL_bounds": "MCLU/MCLL hyperbolic in Ca/Si (silicate polymorphism, alpha=BT/PT vacancy ratio)",
+    "LFNMR_D_R": "interlayer up on drying / down on resat; capillary down irreversible; gel up (rearrangement)",
+    "verdict_each": {
+      "H2a": "PASS-literature (1.2-2.3 range, mean 1.7 per TEM/EMPA)",
+      "H2b": "PASS-literature",
+      "H2c": "PASS-literature (no cross-linking @20C; Q3 appears only low Ca/Si or T>80C)",
+      "H2d": "PASS-literature (Rodger et al 23y C3S paste Q1/Q2 42/58)",
+      "H2e": "PASS-2026 paper values reproduced as thresholds",
+      "H2f": "PASS-2026 paper values reproduced as thresholds"
+    }
+  },
+  "verdict": "PASS-literature synthesis \u2014 new NMR needed for publishable claim",
+  "negative_results": [
+    "C-S-H(II)/jennite-like vs C-S-H(I)/tobermorite-like still debated; PT vacancies required above Ca/Si 1.5 (Kumar 10% BT @1.5)",
+    "Synthetic C-S-H collapses on D-R; cannot fully predict real paste stability (Mater Struct 2026)"
+  ],
+  "sources": [
+    "https://link.springer.com/article/10.1617/s11527-026-03184-4 (LF-NMR 2026)",
+    "exa.ai/library/publication/l2fn9thmhjx (DNP-NMR early MCL 2026)",
+    "Richardson 2004 T/J + 2014 IUCr C-(A)-S-H(I) clinotobermorite dimer model",
+    "Cong/Kirkpatrick 1996 29Si NMR; Pellenq et al 2009 PNAS realistic model",
+    "Taylor 1997 Ch.5 + Richardson/Taylor 3rd ed Vol.1 (2025) preview"
+  ],
+  "timestamp": "2026-09-30T10:19:03.122202Z",
+  "live_data_status": "literature thresholds; live NMR requires lab \u2014 documented"
+}

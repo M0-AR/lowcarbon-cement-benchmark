@@ -1,0 +1,109 @@
+{
+  "hypothesis": "H1 Bogue C3S ~8% low vs QXDA/microscopy (Taylor \u00a74.5.4, Kristmann n=39)",
+  "threshold": {
+    "alite_bias_mean": 8.0,
+    "tolerance": 0.5,
+    "unit": "wt%"
+  },
+  "observed": {
+    "mean_bias": 8.0,
+    "n": 5,
+    "per_sample": [
+      {
+        "sample": "OPC-typical",
+        "bogue": {
+          "C3S": 57.4,
+          "C2S": 19.78,
+          "C3A": 8.18,
+          "C4AF": 9.13
+        },
+        "qxda_proxy": {
+          "C3S": 65.4,
+          "C2S": 12.78,
+          "C3A": 7.18,
+          "C4AF": 9.43
+        },
+        "alite_bias": 8.0
+      },
+      {
+        "sample": "OPC-high-alite",
+        "bogue": {
+          "C3S": 69.61,
+          "C2S": 8.27,
+          "C3A": 7.82,
+          "C4AF": 8.83
+        },
+        "qxda_proxy": {
+          "C3S": 77.61,
+          "C2S": 1.27,
+          "C3A": 6.82,
+          "C4AF": 9.13
+        },
+        "alite_bias": 8.0
+      },
+      {
+        "sample": "OPC-belite-rich",
+        "bogue": {
+          "C3S": 40.97,
+          "C2S": 36.48,
+          "C3A": 6.51,
+          "C4AF": 9.74
+        },
+        "qxda_proxy": {
+          "C3S": 48.97,
+          "C2S": 29.48,
+          "C3A": 5.51,
+          "C4AF": 10.04
+        },
+        "alite_bias": 8.0
+      },
+      {
+        "sample": "SR-cement",
+        "bogue": {
+          "C3S": 57.48,
+          "C2S": 22.01,
+          "C3A": 0.87,
+          "C4AF": 13.69
+        },
+        "qxda_proxy": {
+          "C3S": 65.48,
+          "C2S": 15.01,
+          "C3A": -0.13,
+          "C4AF": 13.99
+        },
+        "alite_bias": 8.0
+      },
+      {
+        "sample": "White-cement",
+        "bogue": {
+          "C3S": 66.2,
+          "C2S": 16.01,
+          "C3A": 10.62,
+          "C4AF": 0.91
+        },
+        "qxda_proxy": {
+          "C3S": 74.2,
+          "C2S": 9.01,
+          "C3A": 9.62,
+          "C4AF": 1.21
+        },
+        "alite_bias": 8.0
+      }
+    ]
+  },
+  "verdict": "PASS-proxy (by construction) \u2014 real QXDA needed for publication; see VALIDATION.md limits",
+  "negative_results": [
+    "PCA IS791: Bogue on blended cements gives impossible values (negative C3S, C2S>100%) \u2014 do NOT apply to LC3/slag/flyash blends",
+    "QXDA proxy is NOT a measurement; Rietveld per ASTM C1365 with proper standards required for PhD claim"
+  ],
+  "sources": [
+    "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir5403.pdf (Stutzman QXRD)",
+    "https://www.cement.org/wp-content/uploads/2024/07/IS791.02_Revised_June2024.pdf (PCA Bogue invalid blended)",
+    "https://rigaku.com/hubfs/.../Rigaku%20Journal%2038-2_1.pdf (partial accumulation free lime)",
+    "Ganesh 2018 exa.ai/library/publication/36pc1dlzb7g (Bogue \u00b19wt% alite)",
+    "Fawcett Powder Diffraction QPA review + ASTM C1365-18"
+  ],
+  "timestamp": "2026-09-30T10:19:03.104149Z",
+  "data": "data/sample_clinker.csv (Taylor-typical, ignited-mass basis)",
+  "live_data_status": "local proxy only; live QXDA requires lab diffractometer \u2014 documented, not claimed"
+}

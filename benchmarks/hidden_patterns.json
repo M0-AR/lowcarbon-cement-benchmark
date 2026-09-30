@@ -1,0 +1,67 @@
+{
+  "hypotheses": [
+    "H3 SCM discontinuity",
+    "H4 Clinker first"
+  ],
+  "live_data": {
+    "uci_concrete_1030": "Cement,Slag,FlyAsh,Water,Superplasticizer,CoarseAgg,FineAgg,Age->Strength (Yeh 1998)",
+    "kaggle_mirrors": [
+      "zain280/concrete-data",
+      "ahmeduzaki/concrete-compressive-strength-dataset (CC0 2025)",
+      "elikplim/concrete-compressive-strength-data-set",
+      "niteshyadav3103/concrete-compressive-strength"
+    ],
+    "fetch_probe": "reachable_probe:https://archive.ics.uci.edu/static/public/165/concrete+compressive+strength.zip (200b probe)",
+    "local_file": "data/sample_concrete.csv (12-row UCI-derived subset, full 1030 via links above)",
+    "model_R2_local_subset": 0.733,
+    "coefficients": {
+      "Cement": 0.0907,
+      "Slag": 0.1487,
+      "FlyAsh": 0.2195,
+      "Water": 0.3141,
+      "Superplasticizer": -1.1432,
+      "CoarseAgg": 0.4344,
+      "FineAgg": 0.0054,
+      "Age": 0.0006
+    }
+  },
+  "hidden_patterns": {
+    "P1_wc_inverse": {
+      "corr_w_c_vs_strength": -0.646,
+      "expect": "negative (Abrams law)",
+      "found": true
+    },
+    "P2_superplasticizer_leverage": {
+      "coef_superplasticizer": -1.1432,
+      "note": "positive enables w/c 0.25-0.35 high strength; check vs P1"
+    },
+    "P3_age_log": {
+      "note": "strength ~ log(Age); 270-365d >28d at same mix (rows 3-4,6-7 in sample)",
+      "check": "median 28d vs 270d+ in full UCI 1030 set"
+    },
+    "P4_SCM_discontinuity_proxy": {
+      "note": "MIP porosity < He/H2O total; slag/flyash same total porosity lower logK; foil-like C-S-H isolates pores (R48/H58/F46)",
+      "test": "MIP-vs-He gap + Cl-diffusivity single curve vs capillary porosity (Garboczi/Bentz)"
+    },
+    "P5_clinker_first_CO2": {
+      "OPC_tCO2_per_t": 0.85,
+      "LC3_50_tCO2_per_t": 0.53,
+      "reduction": "32-40% (LCA), up to 61% geo-optimized",
+      "driver": "clinker factor f_clinker, GWP=832.8 kg/t; processing secondary"
+    }
+  },
+  "verdict": "PASS-local_subset (P1 negative corr, R2 logged) \u2014 full 1030-row + MIP/He needed for publication",
+  "negative_results": [
+    "Local n=12 R2 optimistic; full UCI needed for stable R2 (~0.6 linear, ~0.9 XGBoost per Kaggle discussion 685420)",
+    "MIP damages paste (F39) + entry-size vs size (Dullien); SEM shows >1um pores MIP misses",
+    "CO2 mass-basis LC3 math excludes transport + performance equivalence (EN197); JIndEcol notes proxy gaps"
+  ],
+  "sources": [
+    "https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength (UCI 1030)",
+    "https://www.kaggle.com/datasets/zain280/concrete-data etc (free-search verified)",
+    "Snellings et al 2023 CemConRes 107199 future SCMs; Yio et al 2018 3D pore",
+    "IOP 2026 1748-9326/ae90c3 (61% LC3); JIndEcol 2026 s44498-026-00186-x (GWP 832.8); UNIDO lc3-booklet-final.pdf (40%); CSIR SimaPro LC3 0.668kg/kg",
+    "Kaggle discussion 685420 XGBoost 93% R2 (2026-04-04)"
+  ],
+  "timestamp": "2026-09-30T10:19:07.066968Z"
+}
