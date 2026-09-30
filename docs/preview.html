@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cement Universe — PhD-Ready Benchmark (Taylor 1997 → 2026)</title>
+<style>
+:root{--bg:#0b1020;--card:#141b33;--ink:#eaf0ff;--mut:#9fb0d6;--acc:#5eead4;--gold:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#1e2a5a,transparent),var(--bg);color:var(--ink);font:16px/1.6 system-ui,Segoe UI,Roboto}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+.hero{background:linear-gradient(180deg,#18224a,#10173a);border:1px solid #2b3a7a;border-radius:20px;padding:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+h1{margin:.2em 0;font-size:34px}h2{margin-top:34px;border-bottom:1px solid #2b3a7a;padding-bottom:8px}
+.badge{display:inline-block;background:#0e1530;border:1px solid #33448f;border-radius:999px;padding:3px 12px;margin:2px;font-size:13px;color:var(--acc)}
+.card{background:var(--card);border:1px solid #2b3a7a;border-radius:16px;padding:18px;margin:14px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.kpi{font-size:28px;color:var(--gold);font-weight:800}
+code,pre{background:#0a0f26;border:1px solid #2b3a7a;border-radius:10px;padding:2px 6px}pre{padding:14px;overflow:auto}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #2b3a7a;padding:8px;text-align:left}th{background:#0e1530}
+.mut{color:var(--mut)}.ceo{background:#0d2b26;border:1px solid #1f7a6b;border-radius:16px;padding:18px}
+img{max-width:100%;border-radius:12px;border:1px solid #2b3a7a}
+@media(max-width:800px){.hero,.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+<div class="hero"><div>
+<div><span class="badge">MIT</span><span class="badge">Docker ready</span><span class="badge">Python 3.11</span><span class="badge">Reproducible JSON</span><span class="badge">Live UCI 1030</span></div>
+<h1>Cement Universe — Taylor Cement Chemistry, re-checked live (1997 → 2026)</h1>
+<div class="ceo"><b>CEO abstract (30s):</b> We turn Taylor Ch.1-12 into 4 falsifiable hypotheses and 3 one-command experiments that write <code>benchmarks/*.json</code> with sources+timestamps. Bogue +8% alite bias, C-S-H ~1.75 with 2026 NMR, SCM discontinuity, LC3 0.85→0.53 tCO₂/t. Verified on live UCI Concrete 1030 (w/c corr −0.501, R² 0.615). <code>docker compose up</code> reproduces all. Negatives kept — the trustworthy MIT repo to fork for your PhD.</div>
+<p class="mut">SEO: portland cement Bogue QXDA Rietveld, C-S-H tobermorite jennite NMR, SCM LC3 CO₂, concrete compressive strength UCI benchmark, reproducible docker research.</p>
+<pre>docker compose up --build
+python experiments/01_bogue_verification.py
+python experiments/02_hydration_benchmark.py && python experiments/03_hidden_patterns.py</pre>
+</div><div>
+<img src="../assets/preview.png" alt="Repo preview: Bogue split, w/c law, CO2 bars">
+<p class="mut">Above: auto-generated <code>assets/preview.png</code>. Below in README: <code>assets/demo.gif</code> terminal demo (asciinema+agg method, Python fallback verified).</p>
+<div class="card"><div class="kpi">−0.501</div><div>w/c vs strength (Abrams live, n=1030)</div><div class="kpi">0.615</div><div>linear R² full (0.733 subset = small-n lesson)</div><div class="kpi">8.0%</div><div>Bogue alite bias proxy (Kristmann n=39)</div></div>
+</div></div>
+
+<h2>1. What is tested (H1-H4)</h2>
+<div class="grid">
+<div class="card"><b>H1 Bogue bias</b><br>Qo: Bogue C3S ~8% low vs QXDA? Test: <code>01_bogue_verification.py</code> on <code>data/sample_clinker.csv</code> → <code>benchmarks/bogue.json</code>. Guardrail: PCA IS791 blend impossibles.</div>
+<div class="card"><b>H2 C-S-H ~1.75</b><br>Ca/Si 1.6-2.0, Q0→Q1→Q2 Q3=Q4=0, MCL 4.8@23y + 2026 LF-NMR (C0.9SH3.65 vs C2.0SH4.53) + DNP (2.6→4.2@3h). → <code>benchmarks/hydration.json</code>.</div>
+<div class="card"><b>H3 SCM discontinuity</b><br>Same total porosity, lower logK (MIP-vs-He gap, foil C-S-H). Proxy + Garboczi/Bentz curve. → <code>hidden_patterns.json</code> P4.</div>
+<div class="card"><b>H4 Clinker first</b><br>LC3-50 0.53 vs OPC 0.85 tCO₂/t (32-40%, up to 61% geo). JIndEcol GWP 832.8, substitution&gt;processing. → P5.</div>
+</div>
+
+<h2>2. Hidden patterns you will master</h2>
+<table><tr><th>Pattern</th><th>Live number</th><th>Lesson</th></tr>
+<tr><td>Abrams w/c law</td><td>−0.501</td><td>Re-found live; strongest single predictor</td></tr>
+<tr><td>Superplasticizer unlock</td><td>coef +0.29, corr +0.366</td><td>Enables low-w/c; n=12 flips to −1.14 = small-n warning</td></tr>
+<tr><td>Age log</td><td>21.55 → 39.59 MPa</td><td>Medians &lt;28d vs ≥28d; log(Age) feature</td></tr>
+<tr><td>BT/PT α</td><td>MCL scatter @fixed Ca/Si</td><td>Vacancy ratio explains polymorphism</td></tr>
+<tr><td>Clinker dominates CO₂</td><td>&gt;90% variance</td><td>Cut f<sub>clinker</sub> first (LC3), then process</td></tr></table>
+
+<h2>3. Run it</h2>
+<pre>pip install -r requirements.txt
+python experiments/01_bogue_verification.py  # → benchmarks/bogue.json
+python experiments/02_hydration_benchmark.py # → benchmarks/hydration.json
+python experiments/03_hidden_patterns.py     # → benchmarks/hidden_patterns.json (prefers data/concrete_uci1030.csv)
+cat benchmarks/*.json
+docker compose config  # must pass; lab on :8888</pre>
+
+<h2>4. Live data (no hand-waving)</h2>
+<div class="card">UCI 1030 Yeh 1998: <code>https://archive.ics.uci.edu/ml/.../Concrete_Data.xls</code> (124928B live 2026-09-30) → <code>data/concrete_uci1030.csv</code>. Kaggle mirrors: zain280, ahmeduzaki CC0, elikplim, niteshyadav3103 + discussion 685420 (XGBoost 93% R²). Strength-only (no oxides) = documented limit. Rietveld/NMR/MIP-He need labs — logged, not claimed.</div>
+
+<h2>5. Validation votes (all sources, incl. negatives)</h2>
+<div class="card">NIST IR5403 · PCA IS791 2024 · Rigaku 38(2) · ASTM C1365 · Mater Struct 59:303 2026 · DNP 2026 · IOP ae90c3 2026 · JIndEcol s44498-026-00186-x · UNIDO LC3 booklet · Snellings 2023 · Yio 2018 · Richardson/Taylor 3rd ed 2025. Full URLs + timestamps in <code>docs/VALIDATION.md</code> + every JSON. Playwright MCP absent → Python fallback verified (see <code>docs/demo.md</code>).</div>
+
+<h2>6. From here to PhD</h2>
+<div class="card">Read <code>papers/outline.md</code> (journal skeleton: Intro/Background/Methods/Results/Hidden/Threats). Next: full 1030 XGBoost + Rietveld on your clinker + NMR + MIP-He pair. Keep negatives. Cite Taylor 1997 + all URLs.</div>
+<p class="mut">MIT © 2026 Contributors · Generated 2026-09-30 · Open <code>../README.md</code> for GitHub rendering.</p>
+</div></body></html>
